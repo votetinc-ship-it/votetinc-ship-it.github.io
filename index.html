@@ -19,7 +19,6 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      overflow-x: auto;
     }
     
     .content {
@@ -35,7 +34,6 @@
       animation: fadeIn 1s ease forwards;
       position: relative;
       z-index: 20;
-      white-space: nowrap;
     }
     
     p {
@@ -51,24 +49,16 @@
       max-width: 800px;
     }
     
-    .gallery-container {
-      width: 100%;
-      overflow-x: auto;
-      padding-bottom: 20px;
-      -webkit-overflow-scrolling: touch;
-    }
-    
     .gallery {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       margin: 40px 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 1.2s;
       position: relative;
       z-index: 20;
-      flex-wrap: nowrap;
-      padding: 10px;
-      min-width: max-content;
+      flex-wrap: wrap;
+      gap: 20px;
     }
     
     .gallery img {
@@ -78,8 +68,6 @@
       border-radius: 10px;
       transition: all 0.4s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      flex-shrink: 0;
-      margin: 0 10px;
     }
     
     .gallery img:hover {
@@ -101,8 +89,7 @@
       animation-delay: 1.7s;
       position: relative;
       z-index: 20;
-      white-space: nowrap;
-      font-family: 'Comic Sans MS', cursive; /* Гарантируем шрифт */
+      font-family: 'Comic Sans MS', cursive;
     }
     
     .secret-btn:hover {
@@ -160,7 +147,6 @@
       font-size: 36px;
       margin-top: 0;
       margin-bottom: 25px;
-      white-space: nowrap;
       font-family: 'Comic Sans MS', cursive;
     }
     
@@ -191,6 +177,13 @@
     }
     
     /* Для мобильных */
+    @media (max-width: 1200px) {
+      .gallery img { 
+        width: 300px;
+        height: 200px;
+      }
+    }
+    
     @media (max-width: 768px) {
       body {
         padding: 20px 10px;
@@ -210,8 +203,9 @@
       }
       
       .gallery img { 
-        width: 280px;
-        height: 200px;
+        width: 100%;
+        max-width: 350px;
+        height: 250px;
       }
       
       .modal-title {
@@ -235,12 +229,10 @@
     <p>Я сделал этот сайт как подарок для тебя и с секретом</p>
     <p>Я не на что не намекаю, но у меня НЕТУ 5$ в месяц на сайт, так что он проживёт всего 1 неделю</p>
     
-    <div class="gallery-container">
-      <div class="gallery">
-        <img src="dog1.jpg" alt="Милый пёсик">
-        <img src="dog2.jpg" alt="Веселый щенок">
-        <img src="dog3.jpg" alt="Счастливая собака">
-      </div>
+    <div class="gallery">
+      <img src="dog1.jpg" alt="Милый пёсик">
+      <img src="dog2.jpg" alt="Веселый щенок">
+      <img src="dog3.jpg" alt="Счастливая собака">
     </div>
     
     <button id="secretBtn" class="secret-btn">Нажми сюда</button>
