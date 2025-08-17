@@ -19,11 +19,12 @@
       justify-content: center;
       align-items: center;
       position: relative;
+      overflow-x: hidden; /* Убираем горизонтальный скролл */
     }
     
     .content {
-      max-width: 100%;
-      width: auto;
+      width: 100%;
+      max-width: 1200px;
       z-index: 10;
     }
     
@@ -62,7 +63,8 @@
     }
     
     .gallery img {
-      width: 350px;
+      width: 100%;
+      max-width: 350px;
       height: 250px;
       object-fit: cover;
       border-radius: 10px;
@@ -90,6 +92,7 @@
       position: relative;
       z-index: 20;
       font-family: 'Comic Sans MS', cursive;
+      display: block;
     }
     
     .secret-btn:hover {
@@ -177,9 +180,9 @@
     }
     
     /* Для мобильных */
-    @media (max-width: 1200px) {
+    @media (max-width: 1100px) {
       .gallery img { 
-        width: 300px;
+        max-width: 300px;
         height: 200px;
       }
     }
@@ -187,6 +190,7 @@
     @media (max-width: 768px) {
       body {
         padding: 20px 10px;
+        overflow-x: hidden;
       }
       
       h1 { 
@@ -203,8 +207,7 @@
       }
       
       .gallery img { 
-        width: 100%;
-        max-width: 350px;
+        max-width: 100%;
         height: 250px;
       }
       
@@ -267,6 +270,11 @@
         if (e.target === secretModal) {
           secretModal.classList.remove('show');
         }
+      });
+      
+      // Предотвращаем скролл при открытой модалке
+      secretModal.addEventListener('transitionend', function() {
+        document.body.style.overflow = secretModal.classList.contains('show') ? 'hidden' : 'auto';
       });
     });
   </script>
