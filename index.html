@@ -1,0 +1,60 @@
+<title>С Днём Рождения, Мама!</title> <style> body { font-family: "Comic Sans MS", cursive, sans-serif; text-align: center; background-color: #fff0f5; margin: 0; padding: 20px; } h1 { color: #d6336c; font-size: 42px; line-height: 1.2; margin-bottom: 10px; opacity: 0; transform: translateY(-20px); animation: fadeInDown 1s ease forwards; } p { font-size: 20px; color: #444; margin-bottom: 24px; opacity: 0; animation: fadeIn 2s ease forwards; animation-delay: 0.5s; } .gallery { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; opacity: 0; animation: fadeIn 2s ease forwards; animation-delay: 1s; } .gallery img { width: 300px; height: auto; border-radius: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s; } .gallery img:hover { transform: scale(1.05); } .secret-btn { margin-top: 28px; padding: 14px 22px; font-size: 18px; background-color: #ff80ab; border: none; border-radius: 14px; color: white; cursor: pointer; transition: transform .2s ease, background-color .3s ease; opacity: 0; animation: fadeInUp 1.5s ease forwards; animation-delay: 1.5s; } .secret-btn:active { transform: scale(0.95); } .secret-btn:hover { background-color: #d6336c; }
+/* Анимации */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Модалка */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* по умолчанию скрыта */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.45);
+  padding: 20px;
+  z-index: 999;
+}
+.modal.show { display: flex; animation: fadeIn 0.5s ease forwards; }
+.modal-box {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  padding: 24px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleIn 0.5s ease forwards;
+}
+.modal-title {
+  margin: 0 0 10px;
+  color: #d6336c;
+  font-size: 28px;
+}
+.modal-text { font-size: 18px; color: #333; margin: 0 0 16px; }
+.close-btn {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #ff80ab;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.close-btn:hover { background:#d6336c; transform: scale(1.05); }
+</style>
